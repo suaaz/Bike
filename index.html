@@ -1,38 +1,731 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Bike Components Explained</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MotoMechanics // How Bike Components Work & Make You Fast</title>
+  <meta name="description" content="A clean, human guide to motorcycle parts. Explained simply, zero boring equations, and loaded with secrets from Ducati, Yamaha, Kawasaki, BMW, and more." />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏍️</text></svg>" />
 </head>
 <body>
-    <header>
-        <h1>Bike Components Explained</h1>
-        <p>A friendly guide to how each part makes your bike faster and better.</p>
-    </header>
-    <main id="components-container">
-        <!-- Cards will be injected here by JavaScript -->
+
+  <!-- Site Navigation -->
+  <header class="site-header">
+    <div class="container nav-row">
+      <a href="#" class="logo-group">
+        <div class="logo-badge">🏍️</div>
+        <div class="logo-text">
+          <h1>Moto<span>Mechanics</span></h1>
+          <p>The Anatomy of Speed</p>
+        </div>
+      </a>
+      
+      <div class="header-controls">
+        <button id="themeToggleBtn" class="control-btn" title="Toggle Light / Dark Mode">
+          <span class="icon">🌙</span> <span class="label">Dark</span>
+        </button>
+        <button id="readingModeBtn" class="control-btn" title="Toggle Child-Friendly vs Complete Mode">
+          <span class="icon">🧸</span> <span class="label">Child Mode: OFF</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-tag">⚡ Zero Equations • 100% Adrenaline</div>
+      <h2>
+        How Bike Parts Work &amp;<br />
+        <span class="gradient-text">Make The Machine Fly</span>
+      </h2>
+      <p class="hero-desc">
+        Ever wonder why a superbike is so blistering fast? Here is the plain-English breakdown of every core component: how it fits into the machine, how it generates speed without confusing physics formulas, and how legendary brands like Ducati, Yamaha, and Kawasaki exploit them.
+      </p>
+
+      <div class="hero-toggles">
+        <div class="mode-pill-group">
+          <button class="mode-pill active" data-view-mode="all">⚡ Complete Guide (All Pillars)</button>
+          <button class="mode-pill" data-view-mode="child">🧸 Explain Like I'm 5 (Child Mode)</button>
+        </div>
+        <div class="mode-pill-group">
+          <button class="mode-pill active" data-img-type="illustration">🎨 Technical Art</button>
+          <button class="mode-pill" data-img-type="photo">📸 Real Photos</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Component Quick-Jump / Hotspot Bar -->
+  <section class="container">
+    <div class="blueprint-section">
+      <div class="blueprint-header">
+        <div>
+          <h3>🔍 Quick Anatomy Jump</h3>
+          <p>Click any component to jump directly to its explanation &amp; racing secrets</p>
+        </div>
+      </div>
+      <div class="hotspots-container" id="hotspotsContainer">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Search Toolbar -->
+  <section class="container">
+    <div class="toolbar-section">
+      <div class="category-filters" id="categoryFilters">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="search-box">
+        <span class="search-icon">🔎</span>
+        <input type="text" id="searchInput" placeholder="Search component or brand (e.g. Ducati)..." />
+      </div>
+
+      <div class="result-count" id="resultCount">Showing 12 of 12 components</div>
+    </div>
+
+    <!-- Component Cards Grid -->
+    <main class="components-grid" id="componentsGrid">
+      <!-- Injected by JavaScript -->
     </main>
-    <script>
-        // Load component data from the JSON file and create cards
-        fetch('data/components.json')
-            .then(r => r.json())
-            .then(data => {
-                const container = document.getElementById('components-container');
-                data.components.forEach(comp => {
-                    const card = document.createElement('div');
-                    card.className = 'card';
-                    card.innerHTML = `
-                        <h2>${comp.name}</h2>
-                        <img src="images/${comp.image}" alt="${comp.name}" onerror="this.style.display='none'"/>
-                        <div class="description child">${comp.childDescription}</div>
-                        <div class="description expert">${comp.expertDescription}</div>
-                        <div class="brand-note">${comp.brandNote}</div>
-                    `;
-                    container.appendChild(card);
-                });
-            })
-            .catch(err => console.error('Failed to load component data', err));
-    </script>
+  </section>
+
+  <!-- Brand Hall of Fame -->
+  <section class="container">
+    <div class="hall-of-fame">
+      <div class="hall-header">
+        <h3>🏆 The Speed Playbooks of Top Brands</h3>
+        <p>How the world's most iconic motorcycle manufacturers master these components to dominate the track.</p>
+      </div>
+      <div class="brands-grid">
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">Ducati</span>
+            <span class="brand-flag">🇮🇹</span>
+          </div>
+          <div class="brand-specialty">Desmodromic Valves &amp; Aero Winglets</div>
+          <p class="brand-desc">Mechanically snapping engine valves shut without springs allows 16,000+ RPM screaming power, paired with biplane carbon winglets that generate 66 lbs of downforce.</p>
+        </div>
+
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">Yamaha</span>
+            <span class="brand-flag">🇯🇵</span>
+          </div>
+          <div class="brand-specialty">Crossplane Crankshaft (CP4)</div>
+          <p class="brand-desc">Uneven 270-180-90-180 firing intervals eliminate inertial torque fluctuations, feeding silky-smooth power to the tire so riders can nail the gas mid-corner.</p>
+        </div>
+
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">Kawasaki</span>
+            <span class="brand-flag">🇯🇵</span>
+          </div>
+          <div class="brand-specialty">Ram-Air &amp; Centrifugal Supercharger</div>
+          <p class="brand-desc">The Ninja H2 and ZX-10R gulp high-velocity wind through nose scoops, compressing air into the engine to unlock an extra 15 free horsepower at top speed.</p>
+        </div>
+
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">BMW Motorrad</span>
+            <span class="brand-flag">🇩🇪</span>
+          </div>
+          <div class="brand-specialty">ShiftCam VVT &amp; M-Carbon Wheels</div>
+          <p class="brand-desc">Variable camshaft lobes give docile everyday street torque below 9,000 RPM, then switch in 9 milliseconds to hyper-aggressive racing cams for 205 hp.</p>
+        </div>
+
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">Honda</span>
+            <span class="brand-flag">🇯🇵</span>
+          </div>
+          <div class="brand-specialty">MotoGP Gullwing Swingarm &amp; Balance</div>
+          <p class="brand-desc">Sculpted banana-style swingarms and frame flex balance derived from Marc Márquez's RC213V machine keep tires hooked up without violent chassis kickback.</p>
+        </div>
+
+        <div class="brand-showcase-card">
+          <div class="brand-showcase-header">
+            <span class="brand-name">KTM</span>
+            <span class="brand-flag">🇦🇹</span>
+          </div>
+          <div class="brand-specialty">Chromoly Trellis Frame &amp; WP Apex</div>
+          <p class="brand-desc">Lightweight interlocking steel trellis architecture and semi-active WP suspension turn high-torque V-twins into hyper-flickable track weapons.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p><strong>MotoMechanics</strong> • A personal exploration of motorcycle engineering made human.</p>
+      <p class="footer-sub">Written without equations • Designed for riders, dreamers, and curious minds.</p>
+    </div>
+  </footer>
+
+  <!-- Embedded fallback dataset ensuring 100% offline & local file:// support -->
+  <script>
+    const EMBEDDED_DATA = {
+      "categories": [
+        { "id": "all", "label": "All Components", "icon": "🏍️" },
+        { "id": "power", "label": "Power & Drive", "icon": "⚡" },
+        { "id": "handling", "label": "Chassis & Handling", "icon": "🎯" },
+        { "id": "aero", "label": "Aerodynamics & Body", "icon": "💨" },
+        { "id": "stopping", "label": "Wheels & Brakes", "icon": "🛑" },
+        { "id": "tech", "label": "Electronics & Tech", "icon": "🧠" }
+      ],
+      "components": [
+        {
+          "id": "engine",
+          "name": "The Engine",
+          "category": "power",
+          "tagline": "The roaring heart that pumps explosive horsepower",
+          "localImage": "images/engine.svg",
+          "photoImage": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "The engine is like the beating heart and sprinting muscles of a cheetah.",
+            "text": "When you drink juice, your body turns it into energy to run. An engine drinks gasoline and mixes it with air, makes tiny controlled fireworks inside, and pushes metal pistons up and down thousands of times a minute. That spinning muscle turns the back wheel and makes the bike go VROOOM!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "The engine sits right in the low center belly of the bike, bolted directly into the frame. Because it is the heaviest piece of the machine, keeping it low and centered stops the motorcycle from feeling heavy or tippy. It connects directly to the airbox on top, the exhaust system underneath, and the transmission gearbox directly behind."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Without complicated math: speed comes from how fast an engine can breathe, burn, and spin. Superbike engines spin up to 15,000 times every single minute—three times faster than a standard car! Because the whole bike weighs barely 400 pounds, that instant explosive push launches you from zero to highway speed in under 3 seconds flat."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Ducati & Yamaha",
+            "text": "• Ducati uses their legendary 'Desmodromic' system: instead of metal springs that can float and flutter at high speeds, mechanical rocker arms physically force the valves open and closed, letting their V4 engine rev past 16,000 RPM safely.\n• Yamaha engineered the 'Crossplane Crankshaft' (CP4) on the R1 to fire cylinders unevenly. This cleans up engine pulses so the rear tire grips smoothly rather than spinning out when slamming on the gas coming out of bends."
+          }
+        },
+        {
+          "id": "frame",
+          "name": "Frame & Chassis",
+          "category": "handling",
+          "tagline": "The ultra-stiff skeleton holding every part together",
+          "localImage": "images/frame.svg",
+          "photoImage": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "The frame is like your body's skeleton bones.",
+            "text": "Your bones hold your arms, legs, and head in place so you can run and jump. Without them, you'd flop on the ground like jelly! The frame holds the handlebars, wheels, fuel tank, and engine firmly in place so the bike stays solid, straight, and safe no matter how fast you go."
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "The chassis is the central bridge. The front steering stem clamps the handlebars and front forks, while the rear pivots around the swingarm. On modern bikes, the engine is bolted as a 'stressed member', meaning the engine block itself acts as part of the frame structure to save metal weight."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "When leaning into a corner at 120 mph, massive forces try to twist the bike. A rigid frame prevents wobbles and keeps both tires in line with surgical precision. Light aluminum and magnesium trim dead weight so you can flick the bike side-to-side effortlessly without fighting heavy resistance."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "KTM & Ducati",
+            "text": "• KTM builds iconic bright-orange 'Trellis' space-frames using high-grade chrome-moly steel tubes welded into interlocking triangles. It delivers incredible structural stiffness while staying featherweight.\n• Ducati dropped traditional twin-spar beams on the Panigale V4 for a 'Front Frame' monocoque casting that weighs only 9.2 lbs and bolts directly to the engine heads, concentrating all strength where the front wheel transfers braking stress."
+          }
+        },
+        {
+          "id": "aerodynamics",
+          "name": "Fairings & Aero Winglets",
+          "category": "aero",
+          "tagline": "The invisible shield that slices wind and generates downforce",
+          "localImage": "images/aero.svg",
+          "photoImage": "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like an upside-down airplane wing wearing superhero armor.",
+            "text": "If you stick your flat hand out of a car window, the rushing wind pushes your hand hard. Fairings are smooth plastic and carbon armor that cuts through the wind like a warm knife through butter. The little winglets on the sides push DOWN into the ground, stopping the front wheel from flying into the air!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Fairings cocoon the front nose, handlebars, radiator, and tail section. Downforce winglets sit on the front side panels right next to the headlights, routing clean undisturbed high-speed air around the rider's helmet and knees."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Above 100 mph, fighting air resistance eats up more than 80% of an engine's power. Slippery fairings let the bike hit huge top speeds with far less effort. Downforce wings push down on the front tire under hard acceleration, meaning the rider can keep full throttle pinned without flipping backwards into an unwanted wheelie."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Ducati & Aprilia",
+            "text": "• Ducati brought MotoGP biplane winglets to the Panigale V4, creating 66 lbs of real downforce at 168 mph. This keeps the front wheel planted without requiring the computer to cut engine power.\n• Aprilia molds ground-effect aero channels into the lower fairings of the RSV4, sucking the bike down toward the tarmac when deeply banked in corners like an F1 race car."
+          }
+        },
+        {
+          "id": "brakes",
+          "name": "Brakes & Calipers",
+          "category": "stopping",
+          "tagline": "The high-friction anchors that let you stop in a heartbeat",
+          "localImage": "images/brakes.svg",
+          "photoImage": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like clamping a spinning plate tightly between your thumbs to freeze it instantly.",
+            "text": "When you pull the brake lever, fluid shoots down a tube and tells two super-tough clamp blocks (called pads) to bite down on a spinning metal wheel disc. They squeeze hard, transform all that wild speed into harmless heat, and bring you to a smooth, safe stop."
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Two massive vented discs bolt onto the front wheel hub, gripped by radial four-piston calipers rigidly attached to the bottom of each fork leg. A master cylinder on the handlebar translates hand lever pressure into hydraulic clamping force."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Race winners don't just go fast—they brake later! Powerful brakes that resist overheating let a rider keep full throttle right up until the last second before turning into a corner, easily overtaking other riders before smoothly releasing the brakes and carrying corner speed."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Brembo & Honda",
+            "text": "• Brembo Stylema calipers are sculpted from a single solid block of alloy with integrated cooling vents, eliminating caliper flex under heavy track braking so the lever never goes soft or spongy.\n• Honda pairs race calipers with Cornering ABS linked to lean-angle gyroscopes, allowing riders to brake hard even when leaning over without washing out the front tire."
+          }
+        },
+        {
+          "id": "suspension",
+          "name": "Suspension & Inverted Forks",
+          "category": "handling",
+          "tagline": "The dynamic knees keeping tires glued to bumpy asphalt",
+          "localImage": "images/suspension.svg",
+          "photoImage": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like bending your knees when you jump off a step so you don't rattle your teeth.",
+            "text": "If your legs were stiff sticks, every little bump on the sidewalk would knock you down! Bike suspension has smart springs and oil tubes. When the wheel hits a bump, the tubes squash down smoothly and push right back up, so you glide over road ripples like riding on a fluffy cloud."
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Two upside-down telescopic forks connect the front wheel axle to the steering clamps. At the back, a high-pressure gas shock absorber bridges the central frame to the swingarm via progressive rocker links."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Tires only give grip when they are touching the asphalt! If the bike skips and bounces over bumps, the tire floats in the air and loses all traction. Great suspension absorbs road chatter instantly, keeping the rubber pressed hard into the road so you can accelerate and steer at radical lean angles."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Yamaha & BMW (Öhlins & WP)",
+            "text": "• Yamaha's R1M and BMW's S1000RR employ electronic semi-active suspension. Computer valves adjust damping in real time: stiffening the front under hard braking to stop dive, and softening over mid-corner bumps for pure tire grip.\n• Upside-Down (USD) forks put the thickest, stiffest outer tubes at the top where chassis bending forces are highest, giving surgical front-end feedback."
+          }
+        },
+        {
+          "id": "exhaust",
+          "name": "Exhaust System",
+          "category": "power",
+          "tagline": "The tuned lungs that clear out burnt gases and save critical weight",
+          "localImage": "images/exhaust.svg",
+          "photoImage": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like blowing out a big breath so you can take a fresh, deep gulp of air.",
+            "text": "You can't take a big breath of air until you blow out what's in your lungs! An engine is the same. After burning fuel, it needs to blow out the smoky fumes instantly. The exhaust pipes are smooth metal slides that rush the air out, and the muffler turns the loud bangs into a deep, happy purr!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Four curved header pipes bolt directly to the front of the engine cylinders, sweep low under the engine oil pan to centralize weight, and exit into a muffler under the seat or low near the swingarm."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "If exhaust fumes get trapped, they choke the engine and kill horsepower. High-flow titanium headers create a scavenging vacuum pulse that literally sucks the next fresh charge of fuel into the engine faster. Switching from heavy factory steel to titanium can shave up to 15 pounds of dead weight."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Kawasaki & Akrapovič",
+            "text": "• Akrapovič hydroforms paper-thin titanium tubes with custom resonance chambers to boost horsepower across the entire rev range while cutting weight in half.\n• Kawasaki installs computer-controlled butterfly valves inside the exhaust collector that stay partially shut at low revs for punchy city torque, then open completely at high revs for maximum screaming top speed."
+          }
+        },
+        {
+          "id": "tires-wheels",
+          "name": "Wheels & Sticky Tires",
+          "category": "stopping",
+          "tagline": "Two palm-sized patches of warm rubber delivering all grip",
+          "localImage": "images/tires.svg",
+          "photoImage": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like wearing sticky rock-climbing sneakers instead of slippery socks.",
+            "text": "If you sprint on a polished gym floor in socks, you'll slide around! Sportbike tires are made of special soft rubber. When you ride, they warm up and get sticky like bubble gum, gripping the road so tightly that you can lean all the way over like a race pilot without sliding."
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Tires are mounted onto lightweight forged rims. The front spins on an axle between the fork legs, while the rear axle mounts inside the swingarm and is spun by the drive chain sprocket."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Spinning wheels act like heavy gyroscopes that fight your steering. Switching to lightweight carbon fiber or forged magnesium rims reduces 'rotational inertia'. The bike flicks from left-to-right through S-curves with instant reflexes, accelerates faster, and stops in shorter distances."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "BMW & Pirelli",
+            "text": "• BMW fits ultralight M-Carbon wheels to the S1000RR, shaving nearly 4 pounds of spinning mass for effortless high-speed flickability.\n• Pirelli's Diablo Supercorsa tires feature dual-compound rubber: harder durable rubber down the center for high-speed highway stability, and ultra-soft track gummy rubber on the shoulders for extreme 60-degree corner lean angles."
+          }
+        },
+        {
+          "id": "quickshifter",
+          "name": "Transmission & Quickshifter",
+          "category": "power",
+          "tagline": "Blink-of-an-eye gear shifts without letting off the gas",
+          "localImage": "images/quickshifter.svg",
+          "photoImage": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like changing gears on a bicycle with a magic button that never makes you stop pedaling.",
+            "text": "On an older bike, every gear change required letting off the gas, pulling the clutch lever, kicking the pedal, and releasing the clutch. A quickshifter has a tiny sensor on your foot lever. The instant your toe clicks it, the computer cuts the engine for just a split second, slips the gear in, and you keep rocketing forward!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "The sequential gearbox sits inside the engine crankcase right behind the crankshaft. The quickshifter sensor is built into the shift linkage rod connecting your foot pedal to the internal transmission selector drum."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "Every time you let off the throttle and clutch, you lose forward thrust and the bike jerks. A bi-directional quickshifter completes the gear shift in just 50 milliseconds—faster than a human can blink! This keeps acceleration uninterrupted and drops seconds off your lap times."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Honda & Ducati",
+            "text": "• Honda and Ducati use auto-blippers that automatically match engine revs with a quick throttle blip when stomping down gears before a turn, stopping rear-wheel hop.\n• Systems are calibrated with lean-angle sensors, allowing full-throttle upshifts even when leaned way over in a corner without destabilizing the motorcycle."
+          }
+        },
+        {
+          "id": "swingarm",
+          "name": "The Swingarm",
+          "category": "handling",
+          "tagline": "The heavy-duty rear arm transforming engine torque into catapult thrust",
+          "localImage": "images/swingarm.svg",
+          "photoImage": "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like a strong arm holding the back wheel firmly into the dirt.",
+            "text": "The swingarm is a sturdy metal arm holding the back wheel. It lets the wheel bounce up and down over bumps while keeping it pointed straight ahead, making sure the back of the bike doesn't wiggle like a fish when you hit the gas!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Pivoting on heavy-duty bearings at the rear of the engine block, the swingarm reaches back to support the rear axle and brake caliper, with the rear shock absorber connecting near its pivot."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "A longer swingarm reduces anti-squat (the back sinking down under acceleration) and prevents the front wheel from lifting too easily. Incredible sideways stiffness prevents the wheel from twisting under 200 horsepower, giving you maximum catapult drive out of slow turns."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Ducati & Honda",
+            "text": "• Ducati is famous for its gorgeous 'Single-Sided Swingarm' sculpted from cast aluminum. Beyond looking legendary, it allows rapid wheel changes during endurance races and leaves open space for low-slung exhaust pipes.\n• Honda uses an inverted 'gull-wing' banana swingarm taken straight from MotoGP to clear high-volume exhaust routing while keeping stiffness off the charts."
+          }
+        },
+        {
+          "id": "electronics",
+          "name": "ECU & 6-Axis IMU Brain",
+          "category": "tech",
+          "tagline": "The digital guardian angel making 1,000 decisions a second",
+          "localImage": "images/electronics.svg",
+          "photoImage": "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like having an invisible superhero co-pilot with superhuman reflexes.",
+            "text": "Modern superbikes have as much power as a race car! The bike's computer has sensors that feel pitch, roll, and tilt, just like your inner ear balances your head. If your tire starts to slide on slippery road paint, the computer gently softens engine power before you even notice, keeping you safe and upright."
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "The Inertial Measurement Unit (IMU) is a tiny sensor box mounted at the bike's exact center of gravity under the seat. It communicates via CAN-bus with the Engine Control Unit (ECU), throttle-by-wire servos, and ABS pumps."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "A rider's reaction time is 200 milliseconds; the IMU reacts in 5 milliseconds. It lets riders open the throttle wide with complete confidence on damp or cold asphalt, knowing slide control, wheelie control, and traction control will maintain peak grip without catastrophic crashes."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Aprilia & Ducati",
+            "text": "• Aprilia's APRC system features predictive slide control and corner-by-corner GPS calibration that adjusts power delivery differently for individual turns at famous racetracks.\n• Ducati DTC EVO 2 calculates tire slippage before it happens by tracking lean angle and rate of change, keeping power delivery smooth rather than abruptly jerking the engine."
+          }
+        },
+        {
+          "id": "ram-air",
+          "name": "Ram-Air Intake Duct",
+          "category": "power",
+          "tagline": "Forced atmospheric feeding through high-speed nose scoops",
+          "localImage": "images/ram-air.svg",
+          "photoImage": "https://images.unsplash.com/photo-1591637333184-19aa84b3e01f?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like opening your mouth into a giant electric fan to take massive breaths.",
+            "text": "When you run fast, you feel cool wind blowing right into your face. Bikes have a big open scoop in the front nose. The faster the bike zooms, the more wind gets rammed straight into the engine, like blowing air into a campfire with a leaf blower!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "Positioned at the front aerodynamic stagnation zone between the headlights, the intake duct tunnels straight through the hollow steering head of the frame into the sealed airbox above the fuel injection velocity stacks."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "At 150+ mph, the incoming rush creates natural positive air pressure inside the airbox. Dense, pressurized air allows the injectors to spray more fuel cleanly, boosting real-world output by 10 to 15 free horsepower at top speed without any heavy turbochargers."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Kawasaki & Suzuki",
+            "text": "• Kawasaki pioneered Ram-Air on the Ninja series (ZX-10R & H2), turning high speed into natural supercharging that raises engine output from 200 hp at rest to over 213 hp at full speed.\n• Suzuki perfected SRAD (Suzuki Ram Air Direct) on the GSX-R and iconic Hayabusa, using wind-tunnel nose ducts to break the 300 km/h world speed record."
+          }
+        },
+        {
+          "id": "chain-sprockets",
+          "name": "Sprockets & Drive Chain",
+          "category": "power",
+          "tagline": "The final drive gear tuning explosive launch vs top speed",
+          "localImage": "images/chain.svg",
+          "photoImage": "https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?auto=format&fit=crop&w=900&q=80",
+          "eli5": {
+            "title": "Explain Like I'm 5 🧸",
+            "analogy": "Like changing gears on your 10-speed bicycle when pedaling up a steep hill.",
+            "text": "When you want to pedal easily up a steep hill, you pick a giant rear gear. When you want to sprint on a flat road, you pick a small gear. On a motorcycle, changing the teeth on the front or rear metal gear cogs lets you pick between wheelie-popping acceleration or blistering top speed!"
+          },
+          "wholeBikeFit": {
+            "title": "How It Fits Into The Whole Bike 🧩",
+            "text": "The small countershaft sprocket is attached to the transmission output shaft, looping a sealed O-ring or X-ring steel chain along the swingarm to the larger rear sprocket bolted to the wheel hub."
+          },
+          "speedFactor": {
+            "title": "Why It Makes The Bike Faster & Better ⚡",
+            "text": "No expensive engine tuning needed! Dropping one tooth on the front sprocket (or adding two teeth to the rear) increases mechanical leverage, delivering violent roll-on acceleration out of corners without adding a single gram of weight."
+          },
+          "brandTricks": {
+            "title": "How Motorcycle Brands Take Advantage 🏆",
+            "brand": "Superbike Race Teams & Renthal",
+            "text": "• Race teams tune final gearing for every racetrack: Monza gets tall gearing for 215 mph straights, while tight twisty tracks like Laguna Seca get short gearing for lightning corner exits.\n• Race-spec 520 conversions use narrow gold chains with hollow pins and hard-anodized 7075-T6 aluminum sprockets, minimizing rotational drag."
+          }
+        }
+      ]
+    };
+
+    // State
+    let siteData = EMBEDDED_DATA;
+    let currentCategory = 'all';
+    let searchQuery = '';
+    let globalImageType = 'illustration'; // 'illustration' or 'photo'
+    let isChildMode = false;
+
+    // Elements
+    const grid = document.getElementById('componentsGrid');
+    const hotspotsContainer = document.getElementById('hotspotsContainer');
+    const categoryFilters = document.getElementById('categoryFilters');
+    const searchInput = document.getElementById('searchInput');
+    const resultCount = document.getElementById('resultCount');
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const readingModeBtn = document.getElementById('readingModeBtn');
+
+    // Theme logic
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      const isLight = document.body.classList.contains('light-theme');
+      themeToggleBtn.querySelector('.icon').textContent = isLight ? '☀️' : '🌙';
+      themeToggleBtn.querySelector('.label').textContent = isLight ? 'Light' : 'Dark';
+    });
+
+    // Reading mode logic
+    function setChildMode(enable) {
+      isChildMode = enable;
+      document.body.classList.toggle('child-mode-active', isChildMode);
+      readingModeBtn.classList.toggle('active', isChildMode);
+      readingModeBtn.querySelector('.label').textContent = isChildMode ? 'Child Mode: ON' : 'Child Mode: OFF';
+      
+      // Sync pill
+      document.querySelectorAll('[data-view-mode]').forEach(btn => {
+        btn.classList.toggle('active', (btn.dataset.viewMode === 'child') === isChildMode);
+      });
+    }
+
+    readingModeBtn.addEventListener('click', () => {
+      setChildMode(!isChildMode);
+    });
+
+    document.querySelectorAll('[data-view-mode]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        setChildMode(btn.dataset.viewMode === 'child');
+      });
+    });
+
+    // Image Type Toggle
+    document.querySelectorAll('[data-img-type]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('[data-img-type]').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        globalImageType = btn.dataset.imgType;
+        renderCards();
+      });
+    });
+
+    // Category Buttons
+    function renderCategories() {
+      categoryFilters.innerHTML = '';
+      siteData.categories.forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `filter-btn ${cat.id === currentCategory ? 'active' : ''}`;
+        btn.innerHTML = `${cat.icon} ${cat.label}`;
+        btn.addEventListener('click', () => {
+          currentCategory = cat.id;
+          renderCategories();
+          renderCards();
+        });
+        categoryFilters.appendChild(btn);
+      });
+    }
+
+    // Quick Anatomy Hotspots
+    function renderHotspots() {
+      hotspotsContainer.innerHTML = '';
+      siteData.components.forEach(comp => {
+        const chip = document.createElement('button');
+        chip.className = 'hotspot-chip';
+        chip.innerHTML = `<span class="dot"></span> ${comp.name}`;
+        chip.addEventListener('click', () => {
+          // If filtered out, switch to all
+          if (currentCategory !== 'all' && currentCategory !== comp.category) {
+            currentCategory = 'all';
+            renderCategories();
+            renderCards();
+          }
+          if (searchQuery) {
+            searchQuery = '';
+            searchInput.value = '';
+            renderCards();
+          }
+          
+          setTimeout(() => {
+            const cardEl = document.getElementById(`card-${comp.id}`);
+            if (cardEl) {
+              cardEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              cardEl.classList.remove('highlighted');
+              void cardEl.offsetWidth; // trigger reflow
+              cardEl.classList.add('highlighted');
+            }
+          }, 60);
+        });
+        hotspotsContainer.appendChild(chip);
+      });
+    }
+
+    // Render Cards
+    function renderCards() {
+      const q = searchQuery.toLowerCase().trim();
+      const filtered = siteData.components.filter(c => {
+        const matchesCategory = currentCategory === 'all' || c.category === currentCategory;
+        const matchesSearch = !q || 
+          c.name.toLowerCase().includes(q) ||
+          c.tagline.toLowerCase().includes(q) ||
+          c.eli5.text.toLowerCase().includes(q) ||
+          c.brandTricks.brand.toLowerCase().includes(q) ||
+          c.brandTricks.text.toLowerCase().includes(q);
+        return matchesCategory && matchesSearch;
+      });
+
+      resultCount.textContent = `Showing ${filtered.length} of ${siteData.components.length} components`;
+      grid.innerHTML = '';
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 24px; color: var(--text-muted);">
+            <div style="font-size: 3rem; margin-bottom: 12px;">🔍</div>
+            <h3>No components match "${searchQuery}"</h3>
+            <p>Try searching for a motorcycle brand like "Ducati", "Yamaha", or clear the search.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(comp => {
+        const imgSrc = globalImageType === 'photo' ? comp.photoImage : comp.localImage;
+        const fallbackSrc = comp.localImage;
+
+        const card = document.createElement('article');
+        card.className = 'card';
+        card.id = `card-${comp.id}`;
+
+        card.innerHTML = `
+          <div class="card-media">
+            <span class="category-tag">${comp.category}</span>
+            <button class="image-switch-btn" title="Toggle Photo / Illustration" data-card-id="${comp.id}">
+              ${globalImageType === 'photo' ? '🎨 Art' : '📸 Photo'}
+            </button>
+            <img 
+              id="img-${comp.id}" 
+              src="${imgSrc}" 
+              alt="${comp.name}" 
+              loading="lazy" 
+              onerror="this.onerror=null; this.src='${fallbackSrc}';" 
+            />
+          </div>
+
+          <div class="card-content">
+            <div class="card-header-group">
+              <h3>${comp.name}</h3>
+              <p class="card-tagline">${comp.tagline}</p>
+            </div>
+
+            <!-- 1. ELI5 Block -->
+            <div class="pillar-block pillar-eli5">
+              <div class="pillar-title">🧸 Explain Like I'm 5</div>
+              <div class="analogy-quote">💡 ${comp.eli5.analogy}</div>
+              <p class="pillar-text">${comp.eli5.text}</p>
+            </div>
+
+            <!-- 2. Fit in Whole Bike -->
+            <div class="pillar-block pillar-fit">
+              <div class="pillar-title">🧩 How It Fits Into The Whole Bike</div>
+              <p class="pillar-text">${comp.wholeBikeFit.text}</p>
+            </div>
+
+            <!-- 3. Speed Factor -->
+            <div class="pillar-block pillar-speed">
+              <div class="pillar-title">⚡ Why It Makes The Bike Faster (No Math!)</div>
+              <p class="pillar-text">${comp.speedFactor.text}</p>
+            </div>
+
+            <!-- 4. Brand Tricks -->
+            <div class="pillar-block pillar-brand">
+              <div class="pillar-title">🏆 How Racing Brands Take Advantage</div>
+              <span class="brand-badge">${comp.brandTricks.brand}</span>
+              <p class="pillar-text" style="white-space: pre-line;">${comp.brandTricks.text}</p>
+            </div>
+          </div>
+        `;
+
+        // Card specific image toggle button
+        const cardImgBtn = card.querySelector('.image-switch-btn');
+        cardImgBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const imgEl = document.getElementById(`img-${comp.id}`);
+          const isCurrentlyPhoto = imgEl.src.includes('unsplash');
+          if (isCurrentlyPhoto) {
+            imgEl.src = comp.localImage;
+            cardImgBtn.textContent = '📸 Photo';
+          } else {
+            imgEl.src = comp.photoImage;
+            cardImgBtn.textContent = '🎨 Art';
+          }
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
+    // Search Input Listener
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderCards();
+    });
+
+    // Try fetching external data/components.json; if blocked by CORS or file:// protocol, fallback silently to EMBEDDED_DATA
+    fetch('data/components.json')
+      .then(res => res.json())
+      .then(data => {
+        if (data && data.components && data.components.length > 0) {
+          siteData = data;
+        }
+      })
+      .catch(err => {
+        console.warn('Using embedded dataset for instant offline/file:// performance:', err);
+      })
+      .finally(() => {
+        renderCategories();
+        renderHotspots();
+        renderCards();
+      });
+  </script>
 </body>
 </html>

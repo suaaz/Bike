@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgQs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <filter id="glowQs">
+      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#bgQs)"/>
+  <!-- Shift Rod, Strain Gauge Sensor & Gear Cogs -->
+  <g transform="translate(100, 60)">
+    <!-- Gear Cogs in Background -->
+    <circle cx="340" cy="110" r="55" fill="none" stroke="#334155" stroke-width="8" stroke-dasharray="8,8"/>
+    <circle cx="340" cy="110" r="25" fill="#1e293b"/>
+    <circle cx="270" cy="170" r="40" fill="none" stroke="#475569" stroke-width="6" stroke-dasharray="6,6"/>
+    <!-- Shift Rod Linkage -->
+    <line x1="80" y1="210" x2="300" y2="90" stroke="#94a3b8" stroke-width="8" stroke-linecap="round"/>
+    <!-- Strain Gauge Load Cell Sensor -->
+    <rect x="160" y="130" width="60" height="35" rx="8" fill="#ef4444" stroke="#fca5a5" stroke-width="2" filter="url(#glowQs)" transform="rotate(-28, 190, 147)"/>
+    <!-- Sensor Data Wire -->
+    <path d="M 190 145 Q 160 110 130 90" fill="none" stroke="#38bdf8" stroke-width="3" stroke-dasharray="4,4"/>
+    <!-- Foot Shift Peg Lever -->
+    <path d="M 80 210 L 40 230 L 30 220" fill="none" stroke="#e2e8f0" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="80" cy="210" r="12" fill="#3b82f6"/>
+    <!-- 50ms Lightning Flash badge -->
+    <g transform="translate(230, 20)">
+      <polygon points="15,0 0,22 12,22 5,40 28,15 15,15" fill="#fbbf24" filter="url(#glowQs)"/>
+      <text x="35" y="28" font-family="sans-serif" font-size="16" font-weight="900" fill="#fbbf24">50ms SHIFT TIME</text>
+    </g>
+  </g>
+  <text x="300" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">BI-DIRECTIONAL AUTO-BLIP QUICKSHIFTER</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEx" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <linearGradient id="tiBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="30%" stop-color="#8b5cf6"/>
+      <stop offset="60%" stop-color="#ec4899"/>
+      <stop offset="100%" stop-color="#e2e8f0"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#bgEx)"/>
+  <!-- Hydroformed Titanium Header & Carbon Muffler -->
+  <g transform="translate(100, 70)">
+    <!-- 4 Headers merging -->
+    <path d="M 40 40 Q 60 120 120 160" fill="none" stroke="url(#tiBlue)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 70 40 Q 90 120 140 160" fill="none" stroke="url(#tiBlue)" stroke-width="12" stroke-linecap="round"/>
+    <path d="M 100 40 Q 115 120 160 165" fill="none" stroke="url(#tiBlue)" stroke-width="12" stroke-linecap="round"/>
+    <!-- Welded Collector Link Pipe -->
+    <path d="M 140 160 Q 220 200 270 170" fill="none" stroke="#94a3b8" stroke-width="22" stroke-linecap="round"/>
+    <!-- Muffler Canister (Carbon Fiber Look) -->
+    <polygon points="270,195 390,140 400,90 280,145" fill="#1e293b" stroke="#334155" stroke-width="3"/>
+    <!-- Carbon Endcap -->
+    <polygon points="390,140 430,120 440,75 400,90" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+    <ellipse cx="420" cy="100" rx="14" ry="20" fill="#020617"/>
+    <!-- Flame Exhaust Spit -->
+    <path d="M 425 95 Q 480 90 495 95 Q 470 108 425 105 Z" fill="#f59e0b" opacity="0.8"/>
+    <path d="M 425 98 Q 460 95 470 98 Q 455 103 425 101 Z" fill="#60a5fa" opacity="0.9"/>
+  </g>
+  <text x="300" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">TITANIUM 4-INTO-1 SCAVENGING SYSTEM</text>
+</svg>

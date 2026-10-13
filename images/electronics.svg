@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgEl" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <filter id="glowEl">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#bgEl)"/>
+  <!-- Microchip, 6-Axis Gyro Gyroscope Lines, Data Circuit -->
+  <g transform="translate(150, 60)">
+    <!-- PCB Circuit Traces -->
+    <path d="M 20 60 H 80 V 100 H 120" stroke="#10b981" stroke-width="2" fill="none"/>
+    <path d="M 20 180 H 70 V 150 H 120" stroke="#10b981" stroke-width="2" fill="none"/>
+    <path d="M 280 60 H 220 V 100 H 180" stroke="#10b981" stroke-width="2" fill="none"/>
+    <path d="M 280 180 H 230 V 150 H 180" stroke="#10b981" stroke-width="2" fill="none"/>
+    <!-- IMU Central Silicon Box -->
+    <rect x="90" y="80" width="120" height="100" rx="12" fill="#0f172a" stroke="#38bdf8" stroke-width="4" filter="url(#glowEl)"/>
+    <text x="150" y="125" font-family="monospace" font-size="20" font-weight="900" fill="#38bdf8" text-anchor="middle">6-AXIS</text>
+    <text x="150" y="148" font-family="sans-serif" font-size="12" font-weight="700" fill="#10b981" text-anchor="middle">IMU BRAIN</text>
+    <!-- Axis 3D Ring Overlay -->
+    <ellipse cx="150" cy="130" rx="90" ry="40" fill="none" stroke="#f43f5e" stroke-width="2" stroke-dasharray="6,4"/>
+    <ellipse cx="150" cy="130" rx="40" ry="90" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="6,4"/>
+    <!-- Pitch, Roll, Yaw indicators -->
+    <circle cx="150" cy="40" r="5" fill="#38bdf8"/>
+    <circle cx="240" cy="130" r="5" fill="#f43f5e"/>
+    <circle cx="150" cy="220" r="5" fill="#10b981"/>
+  </g>
+  <text x="300" y="360" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">PREDICTIVE TRACTION & 6-AXIS IMU GYRO</text>
+</svg>

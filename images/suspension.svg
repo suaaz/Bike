@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgSu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141824"/>
+      <stop offset="100%" stop-color="#0a0c10"/>
+    </linearGradient>
+    <linearGradient id="goldFork" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
+    <linearGradient id="chromeInner" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#94a3b8"/>
+      <stop offset="50%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#64748b"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" rx="16" fill="url(#bgSu)"/>
+  <!-- Inverted Fork Leg & Rear Coil Spring -->
+  <g transform="translate(140, 50)">
+    <!-- USD Gold Outer Tube -->
+    <rect x="50" y="20" width="36" height="150" rx="6" fill="url(#goldFork)" stroke="#b45309" stroke-width="2"/>
+    <rect x="45" y="15" width="46" height="15" rx="3" fill="#334155"/>
+    <circle cx="68" cy="22" r="4" fill="#3b82f6"/>
+    <!-- Chrome Stanchion Inner Tube -->
+    <rect x="56" y="170" width="24" height="110" fill="url(#chromeInner)" stroke="#475569" stroke-width="1"/>
+    <!-- Fork Axle Lug Radial Mount -->
+    <path d="M 45 280 L 85 280 L 105 320 L 40 320 Z" fill="#1e293b" stroke="#64748b" stroke-width="2"/>
+    <circle cx="70" cy="305" r="14" fill="#0f172a" stroke="#94a3b8" stroke-width="3"/>
+    
+    <!-- Rear Yellow Shock Spring -->
+    <g transform="translate(180, 20)">
+      <!-- Top Mount Eyelet -->
+      <circle cx="60" cy="25" r="18" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+      <circle cx="60" cy="25" r="8" fill="#f8fafc"/>
+      <!-- Piggyback Reservoir -->
+      <rect x="90" y="25" width="28" height="70" rx="6" fill="url(#goldFork)" stroke="#b45309" stroke-width="2"/>
+      <!-- Yellow Coils -->
+      <path d="M 45 60 Q 75 75 45 90 Q 75 105 45 120 Q 75 135 45 150 Q 75 165 45 180 Q 75 195 45 210 Q 75 225 45 240 Q 75 255 45 270" fill="none" stroke="#eab308" stroke-width="16" stroke-linecap="round"/>
+      <!-- Bottom Eyelet -->
+      <circle cx="60" cy="295" r="18" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+      <circle cx="60" cy="295" r="8" fill="#f8fafc"/>
+    </g>
+  </g>
+  <text x="300" y="375" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">USD FORKS & PROGRESSIVE MONOSHOCK</text>
+</svg>
