@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bike Components Explained</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Bike Components Explained</h1>
+        <p>A friendly guide to how each part makes your bike faster and better.</p>
+    </header>
+    <main id="components-container">
+        <!-- Cards will be injected here by JavaScript -->
+    </main>
+    <script>
+        // Load component data from the JSON file and create cards
+        fetch('data/components.json')
+            .then(r => r.json())
+            .then(data => {
+                const container = document.getElementById('components-container');
+                data.components.forEach(comp => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+                    card.innerHTML = `
+                        <h2>${comp.name}</h2>
+                        <img src="images/${comp.image}" alt="${comp.name}" onerror="this.style.display='none'"/>
+                        <div class="description child">${comp.childDescription}</div>
+                        <div class="description expert">${comp.expertDescription}</div>
+                        <div class="brand-note">${comp.brandNote}</div>
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => console.error('Failed to load component data', err));
+    </script>
+</body>
+</html>

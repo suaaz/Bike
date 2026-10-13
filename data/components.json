@@ -1,0 +1,46 @@
+{
+  "components": [
+    {
+      "name": "Frame",
+      "image": "frame.jpg",
+      "childDescription": "The frame is like the bike’s skeleton. It holds everything together so you can ride safely.",
+      "expertDescription": "A lightweight, rigid frame improves handling and reduces energy loss, allowing better power transfer.",
+      "brandNote": "Sport‑brand bikes use aluminium or carbon frames to keep weight low and boost acceleration."
+    },
+    {
+      "name": "Engine",
+      "image": "engine.jpg",
+      "childDescription": "The engine is the heart that makes the bike go vroom! It creates the power that moves the bike.",
+      "expertDescription": "Higher displacement and tuned combustion increase torque, giving quicker bursts of speed.",
+      "brandNote": "Racing brands often use high‑revving four‑cylinder engines for top‑end power."
+    },
+    {
+      "name": "Tires",
+      "image": "tires.jpg",
+      "childDescription": "Tires are the shoes of the bike. They grip the road so you don’t slip.",
+      "expertDescription": "Wider, softer compounds provide better traction, while a slick profile reduces rolling resistance.",
+      "brandNote": "Performance brands fit sport‑tread tires to maximise grip in corners."
+    },
+    {
+      "name": "Brakes",
+      "image": "brakes.jpg",
+      "childDescription": "Brakes are the bike’s hands that help it stop safely.",
+      "expertDescription": "Larger, ventilated discs paired with multi‑pad calipers shorten stopping distance.",
+      "brandNote": "High‑end models use ABS and dual‑channel brakes for tighter control."
+    },
+    {
+      "name": "Suspension",
+      "image": "suspension.jpg",
+      "childDescription": "The suspension is the bike’s cushion, smoothing out bumps so the ride feels comfy.",
+      "expertDescription": "Adjustable preload and damping let riders tune handling for different tracks.",
+      "brandNote": "Racing bikes feature upside‑down forks and rear linkages for precise feedback."
+    },
+    {
+      "name": "Exhaust",
+      "image": "exhaust.jpg",
+      "childDescription": "The exhaust is the pipe that lets the engine breathe out its noisy sighs.",
+      "expertDescription": "Free‑flow designs reduce back‑pressure, allowing the engine to expel gases faster and gain power.",
+      "brandNote": "Sport bikes often use titanium exhausts to cut weight and improve performance."
+    }
+  ]
+}
